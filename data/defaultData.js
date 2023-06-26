@@ -274,4 +274,4 @@ const initialData = [
   },
 ];
 
-module.exports = initialData;
+export default initialData;
