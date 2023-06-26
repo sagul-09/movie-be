@@ -3,6 +3,7 @@ const app = express();
 import mongoose from "mongoose";
 import cors from "cors";
 import * as dotenv from "dotenv";
+import movieRouter from "./route/movieRoute.js";
 
 app.use(express.json());
 app.use(cors());
@@ -17,9 +18,8 @@ db.once("open", () => {
   console.log("Connected successfully to the database!");
 });
 
-app.get("/", (req, res) => {
-  res.send("server is working");
-});
+app.use("/api/v1/movie", movieRouter);
+
 app.listen(3500, () => {
   console.log(`server is running in http://localhost:3500`);
 });
